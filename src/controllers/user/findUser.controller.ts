@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { z } from 'zod';
 
-import { createUserUseCase, findUserUseCase } from '@/useCases/user';
+import { findUserUseCase } from '@/useCases/user';
 
 const requestSchema = z.object({
   userId: z
@@ -18,7 +18,7 @@ export async function findUserController(request: Request, response: Response) {
 
   if (!dtoResult.success) {
     throw new Error(
-      `Não foi possível criar o usuário. Erro: ${dtoResult.error.message}`
+      `Não foi possível buscar o usuário. Erro: ${dtoResult.error.message}`
     );
   }
 
