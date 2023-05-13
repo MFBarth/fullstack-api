@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsup src",
     "start": "tsx src/server.ts",
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "db:migrate:deploy": "npx prisma migrate deploy",
+    "db:migrate:dev": "npx prisma migrate dev --preview-feature"
   },
   "keywords": [],
   "author": "",
