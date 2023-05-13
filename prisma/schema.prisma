@@ -14,8 +14,8 @@ model User {
   id       String @id @default(uuid())
   name     String
   lastName String
-  cpf      String
-  phone    String
+  cpf      String @unique
+  phone    String @unique
   birthDay String
 
   @@map("users")
