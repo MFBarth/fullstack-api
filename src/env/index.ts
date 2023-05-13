@@ -1,0 +1,20 @@
+import 'dotenv/config';
+
+import { z } from 'zod';
+
+const envSchema = z.object({
+  API_PORT: z.coerce.number().default(3333),
+  DATABASE_NAME: z.string().default('test'),
+  DATABASE_USERNAME: z.string().default('postgres'),
+  DATABASE_PASSWORD: z.string().default('postgres'),
+  DATABASE_PORT: z.coerce.number().default(5432),
+});
+
+const _env = envSchema.safeParse(process.env);
+
+if (!_env.success) {
+  console.error('Invalid environment variables!', _env.error.format());
+  throw new Error('Invalid environment variables!');
+}
+
+export const env = _env.data;
