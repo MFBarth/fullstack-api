@@ -24,5 +24,5 @@ export async function findUserController(request: Request, response: Response) {
 
   const user = findUserUseCase.execute(dtoResult.data);
 
-  return user;
+  return response.status(200).json(user);
 }

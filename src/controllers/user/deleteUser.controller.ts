@@ -27,5 +27,5 @@ export async function deleteUserController(
 
   deleteUserUseCase.execute(dtoResult.data);
 
-  return true;
+  return response.status(200);
 }

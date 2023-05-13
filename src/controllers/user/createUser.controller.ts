@@ -16,5 +16,5 @@ export async function createUserController(
 
   const user = createUserUseCase.execute(dtoResult.data);
 
-  return true;
+  return response.status(200).json(user);
 }

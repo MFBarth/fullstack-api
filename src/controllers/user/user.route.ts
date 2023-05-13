@@ -4,12 +4,12 @@ import { findUserController } from './findUser.controller';
 import { updateUserController } from './updateUser.controller';
 import { findAllUsersController } from './findAllUsers.controller';
 
-export async function userRoutes() {
-  const app = Router();
+const routes = Router();
 
-  app.post('/create', createUserController);
-  app.get('/find', findUserController);
-  app.put('/update', updateUserController);
-  app.delete('/delete', updateUserController);
-  app.get('/findAll', findAllUsersController);
-}
+routes.post('/create', createUserController);
+routes.get('/find', findUserController);
+routes.put('/update', updateUserController);
+routes.delete('/delete', updateUserController);
+routes.get('/findAll', findAllUsersController);
+
+export default routes;

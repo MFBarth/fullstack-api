@@ -8,5 +8,5 @@ export async function findAllUsersController(
 ) {
   const users = findAllUserUseCase.execute();
 
-  return users;
+  return response.status(200).json(users);
 }

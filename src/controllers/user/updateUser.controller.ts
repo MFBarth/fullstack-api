@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { z } from 'zod';
 
 import { updateUserBodySchema } from '@/dtos/user.dto';
 
@@ -19,5 +18,5 @@ export async function updateUserController(
 
   const user = updateUserUseCase.execute(dtoResult.data);
 
-  return user;
+  return response.status(200).json(user);
 }
