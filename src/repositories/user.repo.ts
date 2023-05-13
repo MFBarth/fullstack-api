@@ -5,5 +5,5 @@ export interface UserRepository {
   findById(id: string): Promise<User | null>;
   findAll(): Promise<User[] | null>;
   update(id: string, data: Prisma.UserUpdateInput): Promise<User>;
-  delete(id: string): Promise<void>;
+  delete(id: string): Promise<User>;
 }

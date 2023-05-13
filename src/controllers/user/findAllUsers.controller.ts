@@ -6,7 +6,7 @@ export async function findAllUsersController(
   request: Request,
   response: Response
 ) {
-  const users = findAllUserUseCase.execute();
+  const users = await findAllUserUseCase.execute();
 
   return response.status(200).json(users);
 }

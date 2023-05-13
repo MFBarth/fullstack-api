@@ -8,7 +8,13 @@ interface DeleteUserRequest {
 export class DeleteUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
-  async execute(request: DeleteUserRequest): Promise<void> {
-    await this.userRepository.delete(request.userId);
+  async execute(request: DeleteUserRequest): Promise<User> {
+    const user = await this.userRepository.delete(request.userId);
+
+    if (!user) {
+      throw new Error('Não foi possível deletar o usuário.');
+    }
+
+    return user;
   }
 }

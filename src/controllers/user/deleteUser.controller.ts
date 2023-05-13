@@ -25,7 +25,9 @@ export async function deleteUserController(
     );
   }
 
-  deleteUserUseCase.execute(dtoResult.data);
+  const { name } = await deleteUserUseCase.execute(dtoResult.data);
 
-  return response.status(200);
+  return response
+    .status(200)
+    .send(`Usuário ${name}, foi deletado com sucesso.`);
 }

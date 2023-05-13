@@ -22,7 +22,7 @@ export async function findUserController(request: Request, response: Response) {
     );
   }
 
-  const user = findUserUseCase.execute(dtoResult.data);
+  const user = await findUserUseCase.execute(dtoResult.data);
 
   return response.status(200).json(user);
 }

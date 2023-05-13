@@ -16,7 +16,7 @@ export async function updateUserController(
     );
   }
 
-  const user = updateUserUseCase.execute(dtoResult.data);
+  const user = await updateUserUseCase.execute(dtoResult.data);
 
   return response.status(200).json(user);
 }

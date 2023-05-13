@@ -14,7 +14,7 @@ export class CreateUserUseCase {
     phone,
     birthDay,
   }: UserDTO): Promise<CreateUserResponse> {
-    const user = this.userRepository.create({
+    const user = await this.userRepository.create({
       name,
       lastName,
       cpf,
