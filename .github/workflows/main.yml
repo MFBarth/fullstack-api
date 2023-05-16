@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'main'
+  workflow_dispatch:
+  env:
+    env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 jobs:
   display-variables:
@@ -21,6 +24,7 @@ jobs:
         DEFAULT_USER: ${{ vars.DEFAULT_USER }}
         OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
         DATABASE_URL: ${{ vars.DATABASE_URL }}
+
   build-project:
     name: Build project
     runs-on: ubuntu-latest
