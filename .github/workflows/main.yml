@@ -29,3 +29,5 @@ jobs:
           DEFAULT_USER: ${{ vars.DEFAULT_USER }}
           DEFAULT_PASSWORD: ${{ vars.DEFAULT_PASSWORD }}
       - run: npm run build
+        env:
+          API_HOST: ${{ vars.API_HOST }}
