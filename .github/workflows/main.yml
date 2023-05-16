@@ -5,6 +5,22 @@ on:
       - 'main'
 
 jobs:
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    if: ${{ vars.USE_VARIABLES == 'true' }}
+    runs-on: ${{ vars.RUNNER }}
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    steps:
+      run: |
+        echo "secret variable : $SECRET"
+        echo "default user variable : $DEFAULT_USER"
+        echo "default user password variable : $OVERRIDE_VAR"
+        echo "database url variable : $DATABASE_URL"
+      env:
+        SECRET: ${{ vars.SECRET }}
+        DEFAULT_USER: ${{ vars.DEFAULT_USER }}
+        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        DATABASE_URL: ${{ vars.DATABASE_URL }}
   build-project:
     name: Build project
     runs-on: ubuntu-latest
@@ -15,16 +31,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use variables
-      run: 
-        echo "secret variable : $SECRET"
-        echo "default user variable : $DEFAULT_USER"
-        echo "default user password variable : $OVERRIDE_VAR"
-        echo "database url variable : $DATABASE_URL"
-      env:
-        SECRET: ${{ vars.SECRET }}
-        DEFAULT_USER: ${{ vars.DEFAULT_USER }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
-        DATABASE_URL: ${{ vars.DATABASE_URL }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
