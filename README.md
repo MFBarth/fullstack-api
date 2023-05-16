@@ -36,3 +36,7 @@ Projeto consiste em manipular os usuários da plataforma.
 ## 🔗 Links da Plataforma
 - Site: https://fullstackapi-uq98.onrender.com/
 - Documentação: https://fullstackapi-uq98.onrender.com/docs/
+
+## 🛠️ Melhorias
+- Melhorar as menssagens de Erro.
+- Incluir uma máscara nos campos de CPF e Data de nascimento.
