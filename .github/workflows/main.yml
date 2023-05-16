@@ -19,7 +19,7 @@ jobs:
           echo "organization variable : $DEFAULT_USER"
           echo "overridden variable : $DEFAULT_USER"
         env:
-          DATABASE_URL: ${{ vars.DATABASE_URL }}
+          DATABASE_URL: ${{ vars }}
           DEFAULT_USER: ${{ vars.DEFAULT_USER }}
           DEFAULT_PASSWORD: ${{ vars.DEFAULT_PASSWORD }}
       - uses: actions/checkout@v3
