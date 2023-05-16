@@ -6,7 +6,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "scripts": {
-    "build": "tsup src",
+    "build": "tsup src/server.ts",
     "start": "tsx src/server.ts",
     "dev": "tsx watch src/server.ts",
     "db:migrate:deploy": "npx prisma migrate deploy",

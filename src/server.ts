@@ -13,11 +13,11 @@ app.use('/api/user', ensureAuthenticated, userRoutes);
 app.use(express.static(__dirname + '/public'));
 
 app.get('/login', (_, res) => {
-  res.sendFile(__dirname + '/public/html/login.html');
+  res.status(200).sendFile(__dirname + '/public/html/login.html');
 });
 
 app.get('/', ensureAuthenticated, (_, res) => {
-  res.sendFile(__dirname + '/public/html/home.html');
+  res.status(200).sendFile(__dirname + '/public/html/home.html');
 });
 
 app.listen(env.API_PORT, () => {
