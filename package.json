@@ -6,6 +6,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "scripts": {
+    "build": "tsc",
     "start": "ts-node -r tsconfig-paths/register --transpile-only src/server.ts",
     "dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/server.ts",
     "db:migrate:deploy": "npx prisma migrate deploy",
