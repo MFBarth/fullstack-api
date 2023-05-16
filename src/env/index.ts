@@ -4,6 +4,7 @@ import { string, z } from 'zod';
 
 const envSchema = z.object({
   API_PORT: z.coerce.number().default(5000),
+  API_HOST: z.string().default('localhost'),
   SECRET: z.string().default('SECRET'),
   DEFAULT_USER: z.string().default('test@test.com'),
   DEFAULT_PASSWORD: z.string().default('senha123'),

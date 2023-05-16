@@ -1,4 +1,5 @@
 import express from 'express';
+import http from 'http';
 
 import { env } from '@/env';
 import { ensureAuthenticated } from './middlewares/ensureAuthenticate';
@@ -20,6 +21,7 @@ app.get('/', ensureAuthenticated, (_, res) => {
   res.status(200).sendFile(__dirname + '/public/html/home.html');
 });
 
-app.listen(env.API_PORT, () => {
-  console.log(`▶️ Server started on port ${env.API_PORT}!`);
+const server = http.createServer(app);
+server.listen(env.API_PORT, env.API_HOST, () => {
+  console.log(`Server running at http://${env.API_HOST}:${env.API_PORT}/`);
 });
