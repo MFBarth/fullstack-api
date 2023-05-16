@@ -32,4 +32,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
+      - run: |
+          git config --local user.email "matheusbarthf@gmail.com"
+          git config --local user.name "Matheus Barth"
       - run: npm run deploy
