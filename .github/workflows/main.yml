@@ -29,6 +29,8 @@ jobs:
           DEFAULT_USER: ${{ vars.DEFAULT_USER }}
           DEFAULT_PASSWORD: ${{ vars.DEFAULT_PASSWORD }}
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
