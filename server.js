@@ -24,12 +24,14 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 
 // src/server.ts
 var import_express3 = __toESM(require("express"));
+var import_http = __toESM(require("http"));
 
 // src/env/index.ts
 var import_config = require("dotenv/config");
 var import_zod = require("zod");
 var envSchema = import_zod.z.object({
   API_PORT: import_zod.z.coerce.number().default(5e3),
+  API_HOST: import_zod.z.string().default("localhost"),
   SECRET: import_zod.z.string().default("SECRET"),
   DEFAULT_USER: import_zod.z.string().default("test@test.com"),
   DEFAULT_PASSWORD: import_zod.z.string().default("senha123"),
@@ -363,11 +365,12 @@ app.use("/api/session", session_route_default);
 app.use("/api/user", ensureAuthenticated, user_route_default);
 app.use(import_express3.default.static(__dirname + "/public"));
 app.get("/login", (_, res) => {
-  res.status(200).render(__dirname + "/public/html/login.html");
+  res.status(200).sendFile(__dirname + "/public/html/login.html");
 });
 app.get("/", ensureAuthenticated, (_, res) => {
   res.status(200).sendFile(__dirname + "/public/html/home.html");
 });
-app.listen(env.API_PORT, () => {
-  console.log(`\u25B6\uFE0F Server started on port ${env.API_PORT}!`);
+var server = import_http.default.createServer(app);
+server.listen(env.API_PORT, env.API_HOST, () => {
+  console.log(`Server running at http://${env.API_HOST}:${env.API_PORT}/`);
 });
