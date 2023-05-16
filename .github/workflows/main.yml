@@ -35,4 +35,5 @@ jobs:
       - run: |
           git config --local user.email "matheusbarthf@gmail.com"
           git config --local user.name "Matheus Barth"
+          git remote set-url origin git@github.com:MFBarth/fullstack-api.git
       - run: npm run deploy
