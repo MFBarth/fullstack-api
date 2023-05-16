@@ -3,29 +3,13 @@ on:
   push:
     branches:
       - 'main'
-  workflow_dispatch:
 env:
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+  SECRET: ${{ vars.SECRET }}
+  DEFAULT_USER: ${{ vars.DEFAULT_USER }}
+  OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+  DATABASE_URL: ${{ vars.DATABASE_URL }}
 
 jobs:
-  display-variables:
-    name: ${{ vars.JOB_NAME }}
-    if: ${{ vars.USE_VARIABLES == 'true' }}
-    runs-on: ${{ vars.RUNNER }}
-    environment: ${{ vars.ENVIRONMENT_STAGE }}
-    steps:
-    - name: Use variables
-      run: |
-        echo "secret variable : $SECRET"
-        echo "default user variable : $DEFAULT_USER"
-        echo "default user password variable : $OVERRIDE_VAR"
-        echo "database url variable : $DATABASE_URL"
-      env:
-        SECRET: ${{ vars.SECRET }}
-        DEFAULT_USER: ${{ vars.DEFAULT_USER }}
-        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
-        DATABASE_URL: ${{ vars.DATABASE_URL }}
-
   build-project:
     name: Build project
     runs-on: ubuntu-latest
