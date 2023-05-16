@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - 'main'
-  workflow_dispatch:
-  env:
-    env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 jobs:
   display-variables:
@@ -14,6 +11,7 @@ jobs:
     runs-on: ${{ vars.RUNNER }}
     environment: ${{ vars.ENVIRONMENT_STAGE }}
     steps:
+    - name: Use variables
       run: |
         echo "secret variable : $SECRET"
         echo "default user variable : $DEFAULT_USER"
