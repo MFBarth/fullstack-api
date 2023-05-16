@@ -5,12 +5,13 @@ import { env } from '@/env';
 import { ensureAuthenticated } from './middlewares/ensureAuthenticate';
 import userRoutes from './controllers/user/user.route';
 import sessionRoutes from './controllers/session/session.route';
+import swaggerDocs from './swagger.json';
 
 const app = express();
 
 app.use(express.json());
 app.use('/api/session', sessionRoutes);
-app.use('/docs', swaggerUi.serve, swaggerUi.setup());
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.use('/api/user', ensureAuthenticated, userRoutes);
 app.use(express.static(__dirname + '/public'));
 
