@@ -28,7 +28,6 @@ jobs:
           DATABASE_URL: ${{ vars.DATABASE_URL }}
           DEFAULT_USER: ${{ vars.DEFAULT_USER }}
           DEFAULT_PASSWORD: ${{ vars.DEFAULT_PASSWORD }}
-      - run: npm run build
-        env:
-          API_HOST: ${{ vars.API_HOST }}
-      - run: node dist/server.js
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
