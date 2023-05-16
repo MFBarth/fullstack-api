@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Use variables
-      - run: |
+        run: |
           echo "repository variable : $DATABASE_URL"
           echo "organization variable : $DEFAULT_USER"
           echo "overridden variable : $DEFAULT_USER"
