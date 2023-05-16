@@ -16,6 +16,7 @@ export async function createSessionController(
   }
 
   const session = await createSessionUseCase.execute(dtoResult.data);
+  response.cookie('accessToken', session);
 
   return response.status(200).json(session);
 }

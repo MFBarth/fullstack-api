@@ -8,14 +8,14 @@ export function ensureAuthenticated(
   response: Response,
   next: NextFunction
 ): void {
-  const authHeader = request.headers.authorization;
+  const accessToken = request.headers.cookie;
 
-  if (!authHeader) {
+  if (!accessToken) {
     response.redirect('/login');
     throw new Error('User is not authenticated');
   }
 
-  const [, token] = authHeader.split(' ');
+  const [, token] = accessToken.split('=');
 
   try {
     verify(token, env.SECRET);
