@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
@@ -92,9 +93,11 @@ async function editUser(userId) {
 }
 
 async function deleteUser(userId) {
-    await fetch(`${baseUrl}/api/user/delete?userId=${userId}`, {
-        method: 'DELETE',
-    });
+    if(confirm('Deseja realmente excluir o usuário?')) {
+        await fetch(`${baseUrl}/api/user/delete?userId=${userId}`, {
+            method: 'DELETE',
+        });
+    }
 
     return updateUserTable();
 }
