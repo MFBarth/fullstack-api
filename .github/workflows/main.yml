@@ -31,3 +31,4 @@ jobs:
       - run: npm run build
         env:
           API_HOST: ${{ vars.API_HOST }}
+      - run: node dist/server.js
