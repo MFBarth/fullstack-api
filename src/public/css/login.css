@@ -1,0 +1,23 @@
+.container {
+    max-width: 350px;
+    margin: auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-content {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 16px 0;
+    display: inline-block;
+    border: 1px solid var(--shadow-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button {
+    margin-top: 16px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <title>FullStack API</title>
+</head>
+<body>
+    <main class="main-container">
+        <form id="create-user-form" class="center-container boarder-container">
+            <div class="content">
+                <div>
+                    <label for="name">Nome</label>
+                    <input id="name" class="input-content" type="text" name="name">
+                </div>
+
+                <div>
+                    <label for="lastName">Sobrenone</label>
+                    <input id="lastName" class="input-content" type="text" name="lastName">
+                </div>
+            </div>
+
+            <div class="content">
+                <div>
+                    <label for="cpf">CPF</label>
+                    <input id="cpf" class="input-content" type="text" name="cpf">
+                </div>
+
+                <div>
+                    <label for="phone">Telefone</label>
+                    <input id="phone" class="input-content" type="text" name="phone">
+                </div>
+
+                <div>
+                    <label for="birthDay">Data de nascimento</label>
+                    <input id="birthDay" class="input-content" type="text" name="birthDay">
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="save-user" class="button submit-button" type="submit" onclick="submitForm()">Salvar</button>
+            </div>
+        </form>
+
+        <table class="table-content">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Data de nascimento</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+
+            <tbody id="users-table">
+
+            </tbody>
+        </table>
+    </main>
+
+    <script src="../js/home.js"></script>
+</body>
+</html>
