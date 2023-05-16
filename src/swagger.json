@@ -3,7 +3,7 @@
     "info": {
         "title": "Fullstack API",
         "description": " Manipulação de Usuários",
-        "termsOfService": "http://localhost:3333/",
+        "termsOfService": "https://fullstackapi-uq98.onrender.com/",
         "contact": {
             "email": "matheusbarthf@gmail.com"
         },
@@ -11,7 +11,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:3333/",
+            "url": "https://fullstackapi-uq98.onrender.com/",
             "description": "FullStack Api"
         }
     ] ,
